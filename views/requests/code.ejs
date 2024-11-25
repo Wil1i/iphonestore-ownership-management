@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("../templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div style="display: flex; justify-content: space-between;">
+      <h1>انتقال مالکیت دستگاه <%= request.customerName %></h1>
+      <div style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%= request.status %></div>
+    </div>
+    
+    <form action="/requests/<%=request.id%>/code" method="post" style="background-color: white; padding: 40px; border-radius: 10px;display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <h4 style="margin: 15px;">کد انتقال مالکیت دستگاه را وارد کنید.</h4>
+        <input style="margin: 15px;text-align: center;" type="text" name="code" placeholder="کد فعالسازی">
+        <button style="margin: 15px;" type="submit">ارسال</button>
+    </form>
+  </div>
+</body>
+</html>

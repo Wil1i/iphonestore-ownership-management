@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("../templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("../templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div style="display: flex; justify-content: space-between;">
+      <h1>انتقال مالکیت دستگاه <%= request.customerName %></h1>
+      <div style="color: var(--main); background-color: rgba(228, 246, 253, .7); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%= request.status %></div>
+    </div>
+    
+    <div style="background-color: white; padding: 10px; border-radius: 10px;">
+        <div style="display: flex; justify-content: space-around; ">
+            <p>شماره مالک جدید  : <%= toPersian(request.customerNumber) %></p>
+            <p>شماره مالک قبل : <%= toPersian(request.ownershipNumber || 'ثبت نشده') %></p>
+            <p>مدل دستگاه : <%= toPersian(request.phoneModel) %></p>
+        </div>
+        <div style="display: flex; justify-content: space-around; margin: 40px 0;">
+            <p style="font-size: 20px; background-color: #cacaca;text-shadow: 2px 2px 5px rgb(161, 161, 161); padding: 8px 10px; border-radius: 10px; letter-spacing: 4px;">IMEI1 : <%= request.IMEI1 %></p>
+            <p style="font-size: 20px; background-color: #cacaca;text-shadow: 2px 2px 5px rgb(161, 161, 161); padding: 8px 10px; border-radius: 10px; letter-spacing: 4px;">IMEI2 : <%= request.IMEI2 %></p>
+        </div>  
+
+        <div style="display: flex; justify-content: space-around;">
+            <p style="color: rgb(159, 13, 13);">روش انتقال : <%= request.transferType %></p>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <a class="btn" href="/requests/<%= request.id%>/code">ارسال کد فعالسازی</a>
+          <a class="btn" href="/requests/<%= request.id %>/done">انتقال به خط زده شد</a>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

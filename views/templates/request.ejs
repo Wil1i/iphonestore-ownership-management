@@ -1,0 +1,8 @@
+<div class="request-container">
+    <p><%=toPersian(request.id)%></p>
+    <p><%=toPersian(request.customerName)%></p>
+    <p><%=toPersian(request.phoneModel)%></p>
+    <small><%= toToday(request.createdAt) %></small>
+    <small style="color: var(--main); background-color: rgb(228, 246, 253); padding: 2px 5px; border-radius: 7px; text-shadow: 2px 2px 3px skyblue;"><%=request.status || 'ثبت نشده'%></small>
+    <a href="/requests/<%=request.id%>">جزئیات</a>
+</div>

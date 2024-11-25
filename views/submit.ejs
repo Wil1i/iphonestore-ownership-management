@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <%- include("./templates/header.ejs", {title : "آیفون استور", css : "homePage"}) %>
+</head>
+<body>
+  <%- include("./templates/sideBar.ejs") %>
+  <div id="check-container">
+    <div>
+      <h1>ثبت درخواست انتقال مالکیت</h1>
+    </div>
+
+    <form action="/submit" method="post">
+        <div>
+            <input type="text" name="customerNumber" placeholder="شماره تماس مشتری">
+            <input type="text" name="customerName" placeholder="نام مشتری">
+            <select name="transferType">
+                <option value="فعالسازی برروی خط">فعالسازی برروی خط</option>
+                <option value="ارسال کد">ارسال کد</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" name="phoneModel" placeholder="مدل دستگاه">
+            <input type="text" name="IMEI1" placeholder="IMEI1">
+            <input type="text" name="IMEI2" placeholder="IMEI2">
+        </div>
+
+        <button type="submit">ثبت</button>
+    </form>
+  </div>
+</body>
+</html>
