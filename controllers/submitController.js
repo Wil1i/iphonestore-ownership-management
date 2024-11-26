@@ -27,10 +27,11 @@ const post = async (req, res) => {
         phoneModel : req.body.phoneModel,
         byUser : req.user.id,
         transferType : req.body.transferType,
-        status : "در انتظار انجام"
+        status : "در انتظار انجام",
+        aghsat : req.body.aghsat || null
     })
 
-    // sms.send(config.smsCodes.submitOwnershipRequest, req.body.customerNumber, [customerName, phoneModel])
+    // sms.send(config.smsCodes.submitOwnershipRequest, req.body.customerNumber, [req.body.customerName, req.body.phoneModel])
     log('ثبت درخواست اتنقال', `درخواست انتقال مالکیت ${req.body.phoneModel} برای ${req.body.customerName} با شماره ${req.body.customerNumber} ثبت شد.`, req.user.id)
 
     req.flash("success", "درخواست با موفقیت ثبت شد.")

@@ -23,12 +23,14 @@
         </div>  
 
         <div style="display: flex; justify-content: space-around;">
-            <p style="color: rgb(159, 13, 13);">روش انتقال : <%= request.transferType %></p>
+            <p style="color: rgb(159, 13, 13);">روش انتقال : <%= (!request.aghsat) ? request.transferType : 'فعالسازی برای فروشگاه' %></p>
         </div>
 
         <div style="display: flex; justify-content: center;">
-          <a class="btn" href="/requests/<%= request.id%>/code">ارسال کد فعالسازی</a>
-          <a class="btn" href="/requests/<%= request.id %>/done">انتقال به خط زده شد</a>
+          <% if(!request.aghsat){ %>
+            <a class="btn" href="/requests/<%= request.id%>/code">ارسال کد فعالسازی</a>
+          <% } %>
+          <a class="btn" href="/requests/<%= request.id %>/done"><%= (!request.aghsat) ? 'انتقال به خط زده شد' : 'انتقال برای فروشگاه زده شد' %></a>
         </div>
     </div>
   </div>

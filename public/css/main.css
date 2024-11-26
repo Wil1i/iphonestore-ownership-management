@@ -109,4 +109,11 @@ a{
   border-radius: 7px;
   padding: 5px 10px;
   margin: 5px;
+  border: 1px solid var(--main);
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover{
+  background-color: transparent;
+  color: var(--main);
 }

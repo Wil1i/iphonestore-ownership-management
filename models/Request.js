@@ -46,6 +46,10 @@ const Request = db.define("requests", {
 
     code : {
         type : DataTypes.TEXT
+    },
+
+    aghsat : {
+        type : DataTypes.TEXT
     }
 })
 

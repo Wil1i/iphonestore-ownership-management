@@ -1,38 +1,8 @@
-const https = require("https")
+const axios = require("axios")
 const config = require("../configs/config.json")
 
 const send = async (bodyId, to, args) => {
-    const data = JSON.stringify({
-        'bodyId': 0,
-        'to': "",
-        'args': ['arg1', 'arg2']
-    });
-    
-    const options = {
-        hostname: 'console.melipayamak.com',
-        port: 443,
-        path: '',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': data.length
-        }
-    };
-    
-    const req = https.request(options, res => {
-        console.log('statusCode: ' + res.statusCode);
-    
-        res.on('data', d => {
-            process.stdout.write(d)
-        });
-    });
-    
-    req.on('error', error => {
-        console.error(error);
-    });
-    
-    req.write(data);
-    req.end();
+    axios.post(config.apis.send, {bodyId, to, args}).then(res => {console.log(res)}).catch(e => console.log(e))
 }
 
 module.exports = {
