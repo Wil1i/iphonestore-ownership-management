@@ -16,7 +16,7 @@ const get = async (req, res) => {
 const post = async (req, res) => {
     const findRequest = await Request.findByPk(req.params.id)
 
-    findRequest.update({code : req.body.code})
+    findRequest.update({code : req.body.code, status : "انجام شد"})
 
     sms.send(config.smsCodes.sendOwnershipCode, findRequest.customerNumber, [findRequest.customerName, findRequest.phoneModel, req.body.code, findRequest.IMEI1, findRequest.IMEI2])
 
